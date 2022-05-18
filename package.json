@@ -1,0 +1,27 @@
+{
+    "name": "nodejs-crud-on-spreadsheet",
+    "version": "1.0.0",
+    "description": "A simple Web application to do CRUD operations on a spreadsheet",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abm6/nodejs-CRUD-on-spreadsheet.git"
+    },
+    "keywords": [
+        "nodejs",
+        "spreadsheet"
+    ],
+    "author": "Abhisek Mandal",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/abm6/nodejs-CRUD-on-spreadsheet/issues"
+    },
+    "homepage": "https://github.com/abm6/nodejs-CRUD-on-spreadsheet#readme",
+    "dependencies": {
+        "xlsx": "^0.18.5"
+    }
+}
