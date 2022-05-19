@@ -20,5 +20,8 @@
     "bugs": {
         "url": "https://github.com/abm6/nodejs-CRUD-on-spreadsheet/issues"
     },
-    "homepage": "https://github.com/abm6/nodejs-CRUD-on-spreadsheet#readme"
+    "homepage": "https://github.com/abm6/nodejs-CRUD-on-spreadsheet#readme",
+    "dependencies": {
+        "xlsx": "^0.18.5"
+    }
 }
