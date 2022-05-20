@@ -22,7 +22,7 @@ const fetchData = async () => {
 function updateColumn(arr = []) {
 	const id = parseInt(arr[0]);
 	const key = arr[1];
-	const value = key == 'Score' || key == 'Id' ? parseInt(arr[2]) : arr[2];
+	const value =( key == 'Score' || key == 'Id' )? parseInt(arr[2]) : arr[2];
 
 	if (Object.keys(data[0]).includes(key)) {
 		data = data.map((item) => {
@@ -74,8 +74,11 @@ function writeToFile(fileName = 'Output.xlsx') {
 	xlsx.writeFile(newWB, `./${fileName}`);
 }
 
-function printData() {
-	console.table(data);
+function persist() {
+	if (fs.existsSync(`./${outputFileName}`)) {
+		fs.unlinkSync(`./${outputFileName}`);
+	}
+	outputFileName = fileName;
 }
 
 async function performCrudOperations(args) {
@@ -88,13 +91,9 @@ async function performCrudOperations(args) {
 
 	if (args[0] in operations) {
 		operations[args[0]](args.slice(1));
-	}
-  
-  if (args[args.length - 1] == '--persist') {
-		if (fs.existsSync(`./${outputFileName}`)) {
-			fs.unlinkSync(`./${outputFileName}`);
-		}
-		outputFileName = fileName;
+		if (args[args.length - 1] === '--persist') persist();
+	} else if (args[0] == '--persist') {
+		persist();
 	} else if (args[0] == null || args[0] == '') {
 		throw new Error('No arguments provided');
 	} else {
